@@ -121,8 +121,10 @@ def main():
             st.dataframe(df, hide_index=True)
             if remainder < 0:
                 st.markdown(f"**Acréscimo necessário:** R$ {abs(remainder):.2f}")
+                st.markdown(f"**Valor total:** R$ {max_value + abs(remainder):.2f}")
             else:
                 st.markdown(f"**Restante:** R$ {remainder:.2f}")
+                st.markdown(f"**Valor total:** R$ {max_value - abs(remainder):.2f}")
         except PriceFetchError as e:
             st.error(str(e))
         except Exception as e:
