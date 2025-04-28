@@ -94,7 +94,7 @@ def allocate_portfolio(symbols: list[str], max_invest: float) -> tuple[pd.DataFr
             "Ticker": s,
             "Quantidade": final_shares[s],
             "Cotação (R$)": prices[s],
-            "Percentual (%)": round((prices[s]/round(final_shares[s] * prices[s], 2)*100), 2),
+            "Percentual (%)": round((round(final_shares[s] * prices[s]/max_invest, 2)*100), 2),
             "Total Investido (R$)": round(final_shares[s] * prices[s], 2)
         }
         for s in symbols
